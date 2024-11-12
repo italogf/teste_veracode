@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+    <h1>Buscar Usuários</h1>
+    <form action="{{ url_for('users') }}" method="post">
+        <label for="username">Nome de Usuário:</label>
+        <input type="text" id="username" name="username">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if users %}
+    <h2>Resultados:</h2>
+    <ul>
+        {% for user in users %}
+        <li>ID: {{ user[0] }} | Nome de Usuário: {{ user[1] }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
